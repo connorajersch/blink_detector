@@ -6,14 +6,14 @@ from imutils import face_utils
 import argparse
 import imutils
 import time
+import os
 import dlib
 import cv2
 import time
 import csv
+from main import disk_dir, dbx
+from dropbox_serializer import DropboxSerializer
 import threading
-
-
-
 
 
 def eye_aspect_ratio(eye):
@@ -169,11 +169,11 @@ def main():
     print(TOTAL)
     print('time cost', end_time - start_time, 's')
     print(temp)
-    with open('./Blink_timestamp.csv', 'w', newline='') as csvfile:
+    with open(os.path.join(disk_dir, 'Blink_timestamp.csv'), 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(temp)
         spamwriter.writerow(ear_temp)
-
+    DropboxSerializer(dbx).upload_file('/Blink_timestamp.csv', 'Blink_timestamp.csv')
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
