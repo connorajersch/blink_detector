@@ -13,6 +13,7 @@ import time
 import csv
 from main import disk_dir, dbx
 from dropbox_serializer import DropboxSerializer
+import threading
 
 
 def eye_aspect_ratio(eye):
@@ -43,8 +44,12 @@ ap.add_argument("-t", "--threshold", type=float, default=0.27,
 ap.add_argument("-f", "--frames", type=int, default=2,
                 help="the number of consecutive frames the eye must be below the threshold")
 
+status = "Data collection is not currently running."
+stopButtonPressed = False
 
 def main():
+    global status
+    global stopButtonPressed
     args = vars(ap.parse_args())
     EYE_AR_THRESH = args['threshold']
     EYE_AR_CONSEC_FRAMES = args['frames']
@@ -56,7 +61,8 @@ def main():
 
     # initialize dlib's face detector (HOG-based) and then create
     # the facial landmark predictor
-    print("[INFO] loading facial landmark predictor...")
+    status = "Loading facial landmark predictor..."
+    print(status)
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor(args["shape_predictor"])
 
@@ -66,8 +72,8 @@ def main():
     (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
 
     # start the video stream thread
-    print("[INFO] starting video stream thread...")
-    print("[INFO] print q to quit...")
+    status = "Starting video stream thread..."
+    print(status)
     if args['video'] == "camera":
         vs = VideoStream(src=0).start()
         fileStream = False
@@ -78,6 +84,9 @@ def main():
     time.sleep(1.0)
     temp = []
     ear_temp = []
+    status = "Data Collection Running!"
+    print(status)
+
     # loop over frames from the video stream
     while True:
         # if this is a file video stream, then we need to check if
@@ -151,9 +160,11 @@ def main():
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
-        # if the `q` key was pressed, break from the loop
-        if key == ord("q"):
+        if stopButtonPressed:
             break
+
+    #end of while loop
+
     end_time = time.time()
     print(TOTAL)
     print('time cost', end_time - start_time, 's')
@@ -166,3 +177,22 @@ def main():
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
+    status = "Data Collection Stopped."
+    print(status)
+
+
+class MultiThreadBlinkDetector(object):
+    """
+    The run() method will be started and it will run in the background
+    until the application exits.
+    """
+
+    def __init__(self):
+        """ Constructor """
+        thread = threading.Thread(target=self.run, args=())
+        thread.daemon = True  # Daemonize thread
+        thread.start()  # Start the execution
+
+    def run(self):
+        '''Function that runs in background'''
+        main()

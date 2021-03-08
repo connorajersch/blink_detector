@@ -1,4 +1,6 @@
 import os
+import time
+import threading
 
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QLabel
@@ -10,9 +12,9 @@ from PyQt5.QtWidgets import QHBoxLayout
 from PyQt5.QtWidgets import QFontDialog
 
 from PyQt5.QtGui import *
-
-
 from PyQt5.QtCore import Qt
+
+import detect_blinks
 
 class MainWidget(QWidget):
     """
@@ -34,8 +36,16 @@ class MainWidget(QWidget):
         self.start_stop_button.setMinimumWidth(300)
         self.start_stop_button.setMinimumHeight(100)
 
+        self.newline = QLabel("")
+
+        self.status_label = QLabel("Data collection is not currently running.")
+        self.status_label.setFont(QFont('Arial', 14))
+
+
         #main button to start or stop data collection
         start_stop_button_layout.addWidget(self.start_stop_button)
+        start_stop_button_layout.addWidget(self.newline)
+        start_stop_button_layout.addWidget(self.status_label)
 
         main_button_widget = QWidget()
         main_button_widget.setLayout(start_stop_button_layout)
@@ -63,11 +73,17 @@ class MainWidget(QWidget):
         """
         Called when the start/stop collection button is pressed
         """
+
         if self.isCollectingData:
+            detect_blinks.stopButtonPressed = True
+            self.status_label.setText("Data Collection Stopped.")
             self.start_stop_button.setText("Start Data Collection")
             self.start_stop_button.setStyleSheet("background-color: light grey")
             self.isCollectingData = False
         else:
+            detect_blinks.MultiThreadBlinkDetector()
+            self.status_label.setText("Data Collection Started!")
             self.start_stop_button.setText("Stop Data Collection")
             self.start_stop_button.setStyleSheet("background-color: #f58997")
+            time.sleep(3)
             self.isCollectingData = True
