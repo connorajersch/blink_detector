@@ -1,0 +1,73 @@
+import os
+
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QLabel
+from PyQt5.QtWidgets import QPushButton
+from PyQt5.QtWidgets import QLineEdit
+from PyQt5.QtWidgets import QComboBox
+from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtWidgets import QHBoxLayout
+from PyQt5.QtWidgets import QFontDialog
+
+from PyQt5.QtGui import *
+
+
+from PyQt5.QtCore import Qt
+
+class MainWidget(QWidget):
+    """
+    Widget for admin related tasks
+    """
+    isCollectingData = False
+
+    def __init__(self, disk_dir: str):
+        super(MainWidget, self).__init__()
+
+        self.disk_dir = disk_dir
+
+        start_stop_button_layout = QVBoxLayout()
+        start_stop_button_layout.setAlignment(Qt.AlignHCenter)
+        self.start_stop_button = QPushButton("Start Data Collection")
+        self.start_stop_button.setFont(QFont('Arial', 18))
+        self.start_stop_button.setMaximumWidth(600)
+        self.start_stop_button.setMaximumHeight(120)
+        self.start_stop_button.setMinimumWidth(300)
+        self.start_stop_button.setMinimumHeight(100)
+
+        #main button to start or stop data collection
+        start_stop_button_layout.addWidget(self.start_stop_button)
+
+        main_button_widget = QWidget()
+        main_button_widget.setLayout(start_stop_button_layout)
+
+
+        layout = QVBoxLayout()
+        layout.addWidget(main_button_widget)
+
+        layout.setAlignment(Qt.AlignTop)
+        self.setLayout(layout)
+
+        self.set_connections()
+
+    def shutdown(self):
+        raise NotImplemented
+
+
+    def set_connections(self):
+        """
+        Sets up all of the connections between the components of the Widget
+        """
+        self.start_stop_button.pressed.connect(self.toggleDataCollection)
+
+    def toggleDataCollection(self):
+        """
+        Called when the start/stop collection button is pressed
+        """
+        if self.isCollectingData:
+            self.start_stop_button.setText("Start Data Collection")
+            self.start_stop_button.setStyleSheet("background-color: light grey")
+            self.isCollectingData = False
+        else:
+            self.start_stop_button.setText("Stop Data Collection")
+            self.start_stop_button.setStyleSheet("background-color: #f58997")
+            self.isCollectingData = True

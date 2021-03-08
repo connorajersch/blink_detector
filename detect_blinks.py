@@ -163,7 +163,3 @@ def main():
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
-
-
-if __name__ == '__main__':
-    main()
