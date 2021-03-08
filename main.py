@@ -15,8 +15,11 @@ from PyQt5.QtCore import Qt
 
 import detect_blinks
 from control_gui import MainWidget
+import dropbox
 
+dbx = dropbox.Dropbox("nKFNWY-52lMAAAAAAAAAAcy6naEI8jJEaTGvn4BADZPmiWGdEbGoBBYXqvQ9--4T")
 disk_dir = ""
+
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -33,7 +36,6 @@ class MainWindow(QMainWindow):
         main_widget.setWidget(self.main_ui_widget)
         main_widget.setFloating(False)
         self.addDockWidget(Qt.LeftDockWidgetArea, main_widget)
-
 
     def shutdown(self):
         self.main_ui_widget.shutdown()
@@ -67,7 +69,6 @@ def main():
     disk_dir = os.path.join(disk_dir, "Blink Detector Data")
     if not os.path.isdir(disk_dir):
         os.mkdir(disk_dir)
-
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
