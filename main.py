@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         self.setCursor(Qt.ArrowCursor)
 
         self.setWindowIcon(QtGui.QIcon(resource_path("assets/HSL-logo.png")))
-        self.setWindowTitle("HSL | Eye Tracking Data Collection")
+        self.setWindowTitle("HSL | Blink Detection Data Collection")
         self.setGeometry(100, 100, 500, 500)
 
         # main widget
@@ -74,6 +74,8 @@ def main():
     e_code = app.exec_()
     window.shutdown()
     sys.exit(e_code)
+
+
 
 
 if __name__ == '__main__':
