@@ -31,6 +31,7 @@ class MainWidget(QWidget):
         start_stop_button_layout.setAlignment(Qt.AlignHCenter)
         self.start_stop_button = QPushButton("Start Data Collection")
         self.start_stop_button.setFont(QFont('Arial', 18))
+        self.start_stop_button.setStyleSheet("background-color: #8deb9c")
         self.start_stop_button.setMaximumWidth(600)
         self.start_stop_button.setMaximumHeight(120)
         self.start_stop_button.setMinimumWidth(300)
@@ -78,9 +79,10 @@ class MainWidget(QWidget):
             detect_blinks.stopButtonPressed = True
             self.status_label.setText("Data Collection Stopped.")
             self.start_stop_button.setText("Start Data Collection")
-            self.start_stop_button.setStyleSheet("background-color: light grey")
+            self.start_stop_button.setStyleSheet("background-color: #8deb9c")
             self.isCollectingData = False
         else:
+            detect_blinks.stopButtonPressed = False
             detect_blinks.MultiThreadBlinkDetector()
             self.status_label.setText("Data Collection Started!")
             self.start_stop_button.setText("Stop Data Collection")
