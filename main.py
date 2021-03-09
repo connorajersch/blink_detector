@@ -59,9 +59,13 @@ def main():
 
     elif plat == "Linux":
         disk_dir = os.path.join(os.path.expanduser("~"), ".HSL")
+
+    elif plat == "Darwin":
+        disk_dir = os.path.join(os.path.expanduser("~/Library/Application Support"), "HSL")
+
     else:
         print("Unsupported operating system: %s" % plat)
-        print("This software only supports Windows and Linux")
+        print("This software only supports Windows, macOS, and Linux")
         exit(1)
 
     if not os.path.isdir(disk_dir):
