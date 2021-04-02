@@ -6,7 +6,6 @@ from imutils import face_utils
 import argparse
 import imutils
 import platform
-import time
 import ctypes
 import os
 import dlib

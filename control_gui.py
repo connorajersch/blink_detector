@@ -1,15 +1,10 @@
-import os
 import time
-import threading
 
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QLabel
 from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtWidgets import QLineEdit
-from PyQt5.QtWidgets import QComboBox
 from PyQt5.QtWidgets import QVBoxLayout
 from PyQt5.QtWidgets import QHBoxLayout
-from PyQt5.QtWidgets import QFontDialog
 
 from PyQt5.QtGui import *
 from PyQt5.QtCore import Qt

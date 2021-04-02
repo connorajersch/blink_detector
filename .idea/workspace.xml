@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4885ae59-7a9b-43c6-86ec-216cbdb4a489" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MenuBay.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blink_detector.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blink_detector.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/control_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detect_blinks.py" beforeDir="false" afterPath="$PROJECT_DIR$/detect_blinks.py" afterDir="false" />
@@ -37,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Blank Requirements File" />
       </list>
     </option>
   </component>
