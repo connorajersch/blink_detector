@@ -25,7 +25,7 @@ cd Eye-Tracking-Data-Collection
 pip install -r requirements.txt
 ```
 
-Naviagte to https://www.dropbox.com/developers to make an "app" through which an API key will be obtained. Once you have the API key, you need to enter it into the main.py file where you see the code `dbx = dropbox.Dropbox('PASTE_API_KEY_HERE')`.
+Naviagte to [the Dropbox Developer site](https://www.dropbox.com/developers) to make an "app" through which an API key will be obtained. Once you have the API key, you need to enter it into the main.py file where you see the code `dbx = dropbox.Dropbox('PASTE_API_KEY_HERE')`.
 
 To build the enitre program (including all dependancies) into a single execuable file, run the following command in the Python terminal.
 
@@ -40,3 +40,6 @@ pip install pyinstaller
 ```
 
 Runnning pyinstaller with these parameters will output a single exe file to the /dist folder within the project directory.
+
+#### Running The Program
+Run the .exe file that you built or were provided. Click the green "Start Data Collection" button. A window showing the webcam feed should open, which includes text detailing the blink count. You can minimize this window if you prefer. Once you are ready to stop the data collection, click the red "Stop Data Collection" button. At this point, the collected data will be automatically uploaded to the linked dropbox. 
