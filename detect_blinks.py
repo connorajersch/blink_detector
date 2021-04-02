@@ -12,6 +12,7 @@ import os
 import dlib
 import cv2
 import time
+import datetime
 import csv
 from main import dbx
 from dropbox_serializer import DropboxSerializer
@@ -188,11 +189,13 @@ def main():
     print(TOTAL)
     print('time cost', end_time - start_time, 's')
     print(temp)
-    with open(os.path.join(disk_dir, 'Blink_timestamp.csv'), 'w', newline='') as csvfile:
+    currentDateTime = datetime.datetime.now().strftime("%d_%m_%Y-%H_%M_%S")
+    with open(os.path.join(disk_dir, str(currentDateTime) + '.csv'), 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(temp)
         spamwriter.writerow(ear_temp)
-    DropboxSerializer(dbx).upload_file(os.path.join(disk_dir, '/Blink_timestamp.csv'), 'Blink_timestamp.csv')
+    DropboxSerializer(dbx).upload_file(os.path.join(disk_dir, str(currentDateTime) + '.csv'),
+                                       '/Collected Data/' + str(currentDateTime) + '.csv')
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
