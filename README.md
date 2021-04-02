@@ -27,6 +27,11 @@ pip install -r requirements.txt
 
 Naviagte to [the Dropbox Developer site](https://www.dropbox.com/developers) to make an "app" through which an API key will be obtained. Once you have the API key, you need to enter it into the main.py file where you see the code `dbx = dropbox.Dropbox('PASTE_API_KEY_HERE')`.
 
+Now the program can be ran using python by running the following command:
+```
+python main.py
+```
+
 To build the enitre program (including all dependancies) into a single execuable file, run the following command in the Python terminal.
 
 ```
