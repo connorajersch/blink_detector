@@ -1,0 +1,13 @@
+pyqt5
+dropbox
+scipy
+imutils
+opencv-python
+cmake
+dlib
+
+
+
+
+
+

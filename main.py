@@ -10,10 +10,8 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QDockWidget
 
-from PyQt5.QtGui import QKeyEvent
 from PyQt5.QtCore import Qt
 
-import detect_blinks
 from control_gui import MainWidget
 from MenuBar import MenuBar
 import dropbox
@@ -21,6 +19,10 @@ import dropbox
 dbx = dropbox.Dropbox("nKFNWY-52lMAAAAAAAAAAcy6naEI8jJEaTGvn4BADZPmiWGdEbGoBBYXqvQ9--4T")
 disk_dir = ""
 
+'''
+Code to compile to exe/pkg:
+pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile
+'''
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
