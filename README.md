@@ -2,7 +2,7 @@
 By: Connor Ajersch and Mathew Dunne
 
 ### HOW TO USE
-Click the green "Start Data Collection" button. The program will start and will automatically track your blinks using your computer's webcam. Once you are ready to stop the data collection, click the red "Stop Data Collection" button. At this point, the collected data will be automatically uploaded to the linked dropbox.You are now free to close the program.
+Click the green "Start Data Collection" button. The program will start and will automatically track your blinks using your computer's webcam. Once you are ready to stop the data collection, click the red "Stop Data Collection" button. At this point, the collected data will be automatically uploaded to the linked dropbox. You are now free to close the program.
 __PLEASE DO NOT CLOSE THE PRGRAM BEFORE STOPPING DATA COLLECTION__
 
 ### Overview
