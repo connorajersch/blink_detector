@@ -40,6 +40,7 @@ class MainWidget(QWidget):
         self.newline = QLabel("")
 
         self.status_label = QLabel("Data collection is not currently running.")
+        self.status_label.setAlignment(Qt.AlignHCenter)
         self.status_label.setFont(QFont('Arial', 14))
 
 
@@ -61,7 +62,7 @@ class MainWidget(QWidget):
         self.set_connections()
 
     def shutdown(self):
-        raise NotImplemented
+        pass
 
 
     def set_connections(self):

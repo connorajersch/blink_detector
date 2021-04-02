@@ -15,6 +15,7 @@ from PyQt5.QtCore import Qt
 
 import detect_blinks
 from control_gui import MainWidget
+from MenuBar import MenuBar
 import dropbox
 
 dbx = dropbox.Dropbox("nKFNWY-52lMAAAAAAAAAAcy6naEI8jJEaTGvn4BADZPmiWGdEbGoBBYXqvQ9--4T")
@@ -28,7 +29,7 @@ class MainWindow(QMainWindow):
 
         self.setWindowIcon(QtGui.QIcon(resource_path("assets/HSL-logo.png")))
         self.setWindowTitle("HSL | Blink Detection Data Collection")
-        self.setGeometry(100, 100, 500, 500)
+        self.setGeometry(500, 300, 500, 300) #x,y,width,height
 
         # main widget
         self.main_ui_widget = MainWidget(disk_dir)
@@ -36,6 +37,9 @@ class MainWindow(QMainWindow):
         main_widget.setWidget(self.main_ui_widget)
         main_widget.setFloating(False)
         self.addDockWidget(Qt.LeftDockWidgetArea, main_widget)
+
+        # menu bar
+        self.menu_bar = MenuBar(disk_dir, self)
 
     def shutdown(self):
         self.main_ui_widget.shutdown()
@@ -77,8 +81,6 @@ def main():
     e_code = app.exec_()
     window.shutdown()
     sys.exit(e_code)
-
-
 
 
 if __name__ == '__main__':

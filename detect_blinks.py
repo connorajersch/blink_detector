@@ -176,9 +176,9 @@ def main():
             cv2.putText(frame, "EAR: {:.2f}".format(ear), (300, 30),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
-        # show the frame
-        cv2.imshow("Frame", frame)
-        key = cv2.waitKey(1) & 0xFF
+        # # show the frame
+        # cv2.imshow("Frame", frame)
+        # key = cv2.waitKey(1) & 0xFF
 
         if stopButtonPressed:
             break
