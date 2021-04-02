@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e86e67-6b28-4af7-bd87-9d15047794ef" name="Default Changelist" comment="">
+    <list default="true" id="4885ae59-7a9b-43c6-86ec-216cbdb4a489" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/blink_detector.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blink_detector.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blink_timestamp.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/detect_blinks.py" beforeDir="false" afterPath="$PROJECT_DIR$/detect_blinks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,14 +35,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1pUduqaIXoB01Im147AdW6QOBfa" />
+  <component name="ProjectId" id="1pUd3QUFDxrX1kPzAFq5ZSo7nEu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -53,12 +75,54 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="19e86e67-6b28-4af7-bd87-9d15047794ef" name="Default Changelist" comment="" />
-      <created>1615241830159</created>
+      <changelist id="4885ae59-7a9b-43c6-86ec-216cbdb4a489" name="Default Changelist" comment="" />
+      <created>1615241404206</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1615241830159</updated>
+      <updated>1615241404206</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="180" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617390711719">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="180" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1617390711719" />
+    <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617391312345">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1617391312345" />
+    <state width="1899" height="579" key="GridCell.Tab.0.bottom" timestamp="1617391974735">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="579" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1617391974735" />
+    <state width="1899" height="579" key="GridCell.Tab.0.center" timestamp="1617391974735">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="579" key="GridCell.Tab.0.center/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1617391974735" />
+    <state width="1899" height="579" key="GridCell.Tab.0.left" timestamp="1617391974735">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="579" key="GridCell.Tab.0.left/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1617391974735" />
+    <state width="1899" height="579" key="GridCell.Tab.0.right" timestamp="1617391974735">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="579" key="GridCell.Tab.0.right/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1617391974735" />
+    <state x="476" y="170" key="SettingsEditor" timestamp="1617390724332">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="476" y="170" key="SettingsEditor/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1617390724332" />
   </component>
 </project>
