@@ -1,6 +1,10 @@
 ## HMSLab: Blink Detection Data Collector
 By: Connor Ajersch and Mathew Dunne
 
+### HOW TO USE
+Click the green "Start Data Collection" button. The program will start and will automatically track your blinks using your computer's webcam. Once you are ready to stop the data collection, click the red "Stop Data Collection" button. At this point, the collected data will be automatically uploaded to the linked dropbox.You are now free to close the program.
+__PLEASE DO NOT CLOSE THE PRGRAM BEFORE STOPPING DATA COLLECTION__
+
 ### Overview
 This repository provides a data collection tool which can be used to track blinking through the use of a Webcam. This program has functionality for storing and uploading locally collected data to Dropbox through the use of the Dropbox API. PyQt5 was used for the GUI, opencv and dlib were used for the webcam facial landmark tracking.
 
@@ -35,7 +39,7 @@ python main.py
 To build the enitre program (including all dependancies) into a single execuable file, run the following command in the Python terminal.
 
 ```
-pyinstaller main.py --name="Eye Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile
+pyinstaller main.py --name="Blink Detection Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile
 ```
 
 This command requires the pyinstaller module, which can be installed using:
@@ -45,6 +49,3 @@ pip install pyinstaller
 ```
 
 Runnning pyinstaller with these parameters will output a single exe file to the /dist folder within the project directory.
-
-#### Running The Program
-Run the .exe file that you built or were provided. Click the green "Start Data Collection" button. A window showing the webcam feed should open, which includes text detailing the blink count. You can minimize this window if you prefer. Once you are ready to stop the data collection, click the red "Stop Data Collection" button. At this point, the collected data will be automatically uploaded to the linked dropbox. 
