@@ -71,8 +71,6 @@ def main():
     if not os.path.isdir(disk_dir):
         os.mkdir(disk_dir)
     disk_dir = os.path.join(disk_dir, "Blink Detector Data")
-    if not os.path.isdir(disk_dir):
-        os.mkdir(disk_dir)
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()

@@ -5,15 +5,35 @@ from imutils.video import VideoStream
 from imutils import face_utils
 import argparse
 import imutils
+import platform
 import time
+import ctypes
 import os
 import dlib
 import cv2
 import time
+import datetime
 import csv
-from main import disk_dir, dbx
+from main import dbx
 from dropbox_serializer import DropboxSerializer
 import threading
+
+
+global disk_dir
+plat = platform.system()
+if plat == "Windows":
+    disk_dir = os.path.join(os.getenv("APPDATA"), "HSL")
+    my_app_id = u'HSL.BlinkDetection.DataCollector'  # arbitrary string
+    # set taskbar icon to same as the window app icon
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
+
+elif plat == "Linux":
+    disk_dir = os.path.join(os.path.expanduser("~"), ".HSL")
+
+elif plat == "Darwin":
+    disk_dir = os.path.join(os.path.expanduser("~/Library/Application Support"), "HSL")
+
+disk_dir = os.path.join(disk_dir, "Blink Detector Data")
 
 
 def eye_aspect_ratio(eye):
@@ -169,11 +189,13 @@ def main():
     print(TOTAL)
     print('time cost', end_time - start_time, 's')
     print(temp)
-    with open(os.path.join(disk_dir, 'Blink_timestamp.csv'), 'w', newline='') as csvfile:
+    currentDateTime = datetime.datetime.now().strftime("%d_%m_%Y-%H_%M_%S")
+    with open(os.path.join(disk_dir, str(currentDateTime) + '.csv'), 'w', newline='') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(temp)
         spamwriter.writerow(ear_temp)
-    DropboxSerializer(dbx).upload_file('/Blink_timestamp.csv', 'Blink_timestamp.csv')
+    DropboxSerializer(dbx).upload_file(os.path.join(disk_dir, str(currentDateTime) + '.csv'),
+                                       '/Collected Data/' + str(currentDateTime) + '.csv')
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
