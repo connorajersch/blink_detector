@@ -7,16 +7,18 @@ import argparse
 import imutils
 import platform
 import ctypes
+import sys
 import os
 import dlib
 import cv2
 import time
 import datetime
+import dropbox
 import csv
-from main import dbx
 from dropbox_serializer import DropboxSerializer
 import threading
 
+dbx = dropbox.Dropbox("nKFNWY-52lMAAAAAAAAAAcy6naEI8jJEaTGvn4BADZPmiWGdEbGoBBYXqvQ9--4T")
 
 global disk_dir
 plat = platform.system()
@@ -51,10 +53,21 @@ def eye_aspect_ratio(eye):
     # return the eye aspect ratio
     return ear
 
+#needed to work as a single exe
+def resource_path(relative_path):
+        """ Get absolute path to resource, works for dev and for PyInstaller """
+        try:
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+            base_path = sys._MEIPASS
+        except Exception:
+            base_path = os.path.abspath(".")
+
+        return os.path.join(base_path, relative_path)
+databasePath = resource_path('shape_predictor_68_face_landmarks.dat')
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-p", "--shape-predictor", default="shape_predictor_68_face_landmarks.dat",
+ap.add_argument("-p", "--shape-predictor", default=databasePath,
                 help="path to facial landmark predictor")
 ap.add_argument("-v", "--video", type=str, default="camera",
                 help="path to input video file")
@@ -65,6 +78,7 @@ ap.add_argument("-f", "--frames", type=int, default=2,
 
 status = "Data collection is not currently running."
 stopButtonPressed = False
+showCamera = True
 
 def main():
     global status
@@ -175,9 +189,10 @@ def main():
             cv2.putText(frame, "EAR: {:.2f}".format(ear), (300, 30),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
-        # # show the frame
-        # cv2.imshow("Frame", frame)
-        # key = cv2.waitKey(1) & 0xFF
+        if showCamera:
+            # show the frame
+            cv2.imshow("Frame", frame)
+            key = cv2.waitKey(1) & 0xFF
 
         if stopButtonPressed:
             break

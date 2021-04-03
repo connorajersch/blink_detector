@@ -16,12 +16,12 @@ from control_gui import MainWidget
 from MenuBar import MenuBar
 import dropbox
 
-dbx = dropbox.Dropbox("nKFNWY-52lMAAAAAAAAAAcy6naEI8jJEaTGvn4BADZPmiWGdEbGoBBYXqvQ9--4T")
+
 disk_dir = ""
 
 '''
 Code to compile to exe/pkg:
-pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile
+pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile --hidden-import scipy.spatial.transform._rotation_groups --add-data "shape_predictor_68_face_landmarks.dat";.
 '''
 
 class MainWindow(QMainWindow):

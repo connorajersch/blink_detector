@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QAction
 import webbrowser
 
+import detect_blinks
 
 class MenuBar(QMainWindow):
     """
@@ -17,10 +18,15 @@ class MenuBar(QMainWindow):
         menubar = main_window.menuBar()
 
         # Items In Menu Bar
+        fileMenu = menubar.addMenu('&File')
         helpMenu = menubar.addMenu('&Help')
 
-
         # set up items within menus
+        showCameraAct = QAction('&Show Camera Feed', self, checkable=True)
+        showCameraAct.triggered.connect(self.toggleCameraFeed)
+        showCameraAct.setChecked(True)
+        fileMenu.addAction(showCameraAct)
+
         readMeAct = QAction('&View README', self)
         readMeAct.triggered.connect(self.openReadMe)
         helpMenu.addAction(readMeAct)
@@ -30,3 +36,10 @@ class MenuBar(QMainWindow):
     """
     def openReadMe(self):
         webbrowser.open('https://github.com/connorajersch/blink_detector/blob/main/README.md')
+
+    def toggleCameraFeed(self, state):
+
+        if state:
+            detect_blinks.showCamera = True
+        else:
+            detect_blinks.showCamera = False
