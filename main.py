@@ -21,15 +21,17 @@ disk_dir = ""
 
 '''
 Code to compile to exe/pkg:
-pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile --hidden-import scipy.spatial.transform._rotation_groups --add-data "shape_predictor_68_face_landmarks.dat";.
+pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile --hidden-import scipy.spatial.transform._rotation_groups --add-data "shape_predictor_68_face_landmarks.dat";. --add-data "HSL-logo.png";.
 '''
+
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setCursor(Qt.ArrowCursor)
 
-        self.setWindowIcon(QtGui.QIcon(resource_path("assets/HSL-logo.png")))
+        iconPath = resource_path("HSL-logo.png")
+        self.setWindowIcon(QtGui.QIcon(iconPath))
         self.setWindowTitle("HSL | Blink Detection Data Collection")
         self.setGeometry(500, 300, 500, 300) #x,y,width,height
 
@@ -47,11 +49,16 @@ class MainWindow(QMainWindow):
         self.main_ui_widget.shutdown()
 
 
-# used to include the icon in the pyinstall build
+#needed to make icon work as a single exe
 def resource_path(relative_path):
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, relative_path)
-    return os.path.join(os.path.abspath('.'), relative_path)
+        """ Get absolute path to resource, works for dev and for PyInstaller """
+        try:
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+            base_path = sys._MEIPASS
+        except Exception:
+            base_path = os.path.abspath(".")
+
+        return os.path.join(base_path, relative_path)
 
 
 def main():
