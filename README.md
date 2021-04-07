@@ -36,10 +36,15 @@ Now the program can be ran using python by running the following command:
 python main.py
 ```
 
-To build the enitre program (including all dependancies) into a single execuable file, run the following command in the Python terminal.
+To build the enitre program (including all dependancies) into a single execuable file on Windows, run the following command in the Python terminal:
 
 ```
-pyinstaller main.py --name="Blink Detection Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile
+pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile --hidden-import scipy.spatial.transform._rotation_groups --add-data "shape_predictor_68_face_landmarks.dat";. --add-data "HSL-logo.png";.
+```
+
+On Mac or Linux, use:
+```
+pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_logo.ico" --noconsole --onefile --hidden-import scipy.spatial.transform._rotation_groups --add-data "shape_predictor_68_face_landmarks.dat":. --add-data "HSL-logo.png":.
 ```
 
 This command requires the pyinstaller module, which can be installed using:
