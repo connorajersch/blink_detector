@@ -15,8 +15,8 @@ import time
 import datetime
 import dropbox
 import csv
-from dropbox_serializer import DropboxSerializer
 import threading
+from dropbox_serializer import DropboxSerializer
 
 dbx = dropbox.Dropbox("nKFNWY-52lMAAAAAAAAAAcy6naEI8jJEaTGvn4BADZPmiWGdEbGoBBYXqvQ9--4T")
 
@@ -226,9 +226,11 @@ class MultiThreadBlinkDetector(object):
     def __init__(self):
         """ Constructor """
         thread = threading.Thread(target=self.run, args=())
-        thread.daemon = True  # Daemonize thread
+        thread.daemon = False  # Daemonize thread
         thread.start()  # Start the execution
 
     def run(self):
-        '''Function that runs in background'''
+        """Function that runs in background"""
         main()
+
+

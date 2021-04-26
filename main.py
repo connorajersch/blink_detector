@@ -14,7 +14,6 @@ from PyQt5.QtCore import Qt
 
 from control_gui import MainWidget
 from MenuBar import MenuBar
-import dropbox
 
 disk_dir = ""
 
