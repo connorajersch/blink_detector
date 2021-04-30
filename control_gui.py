@@ -1,4 +1,6 @@
 import time
+import os
+import platform
 
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QLabel
@@ -11,6 +13,17 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import Qt
 
 import detect_blinks
+
+global disk_dir
+plat = platform.system()
+if plat == "Windows":
+    disk_dir = os.path.join(os.getenv("APPDATA"), "HSL")
+
+elif plat == "Linux":
+    disk_dir = os.path.join(os.path.expanduser("~"), ".HSL")
+
+elif plat == "Darwin":
+    disk_dir = os.path.join(os.path.expanduser("~/Library/Application Support"), "HSL")
 
 class MainWidget(QWidget):
 
@@ -123,5 +136,9 @@ class MainWidget(QWidget):
 
         #convert value from int (0-100) to float
         realValue = (0.27/50)*value
-
         self.thresholdLabel.setText(str(realValue.__round__(2)))
+
+        with open(os.path.join(disk_dir, "threshold.txt"), "w") as f:
+            f.write(str(realValue.__round__(2)))
+            # print("writing real value: " + str(realValue.__round__(2)))
+            f.close()

@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4885ae59-7a9b-43c6-86ec-216cbdb4a489" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/blink_detector.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blink_detector.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/control_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/control_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detect_blinks.py" beforeDir="false" afterPath="$PROJECT_DIR$/detect_blinks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,5 +108,23 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1899" height="133" key="GridCell.Tab.0.bottom" timestamp="1619818677459">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="133" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619818677459" />
+    <state width="1899" height="133" key="GridCell.Tab.0.center" timestamp="1619818677459">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="133" key="GridCell.Tab.0.center/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619818677459" />
+    <state width="1899" height="133" key="GridCell.Tab.0.left" timestamp="1619818677459">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="133" key="GridCell.Tab.0.left/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619818677459" />
+    <state width="1899" height="133" key="GridCell.Tab.0.right" timestamp="1619818677459">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="133" key="GridCell.Tab.0.right/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619818677459" />
   </component>
 </project>

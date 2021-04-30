@@ -16,7 +16,6 @@ from control_gui import MainWidget
 from MenuBar import MenuBar
 import dropbox
 
-
 disk_dir = ""
 
 '''
@@ -33,7 +32,7 @@ class MainWindow(QMainWindow):
         iconPath = resource_path("HSL-logo.png")
         self.setWindowIcon(QtGui.QIcon(iconPath))
         self.setWindowTitle("HSL | Blink Detection Data Collection")
-        self.setGeometry(500, 300, 500, 300) #x,y,width,height
+        self.setGeometry(500, 300, 500, 300)  # x,y,width,height
 
         # main widget
         self.main_ui_widget = MainWidget(disk_dir)
@@ -49,16 +48,16 @@ class MainWindow(QMainWindow):
         self.main_ui_widget.shutdown()
 
 
-#needed to make icon work as a single exe
+# needed to make icon work as a single exe
 def resource_path(relative_path):
-        """ Get absolute path to resource, works for dev and for PyInstaller """
-        try:
-            # PyInstaller creates a temp folder and stores path in _MEIPASS
-            base_path = sys._MEIPASS
-        except Exception:
-            base_path = os.path.abspath(".")
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
 
-        return os.path.join(base_path, relative_path)
+    return os.path.join(base_path, relative_path)
 
 
 def main():
@@ -80,6 +79,10 @@ def main():
         print("Unsupported operating system: %s" % plat)
         print("This software only supports Windows, macOS, and Linux")
         exit(1)
+
+    with open(os.path.join(disk_dir, "threshold.txt"), "w") as f:
+        f.write("0.27")
+        f.close()
 
     if not os.path.isdir(disk_dir):
         os.mkdir(disk_dir)
