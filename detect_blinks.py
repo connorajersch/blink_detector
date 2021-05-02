@@ -21,18 +21,19 @@ import threading
 dbx = dropbox.Dropbox("nKFNWY-52lMAAAAAAAAAAcy6naEI8jJEaTGvn4BADZPmiWGdEbGoBBYXqvQ9--4T")
 
 global disk_dir
+global thresh_disk_dir
 plat = platform.system()
 if plat == "Windows":
     disk_dir = os.path.join(os.getenv("APPDATA"), "HSL")
-    my_app_id = u'HSL.BlinkDetection.DataCollector'  # arbitrary string
-    # set taskbar icon to same as the window app icon
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(my_app_id)
+    thresh_disk_dir = disk_dir
 
 elif plat == "Linux":
     disk_dir = os.path.join(os.path.expanduser("~"), ".HSL")
+    thresh_disk_dir = disk_dir
 
 elif plat == "Darwin":
     disk_dir = os.path.join(os.path.expanduser("~/Library/Application Support"), "HSL")
+    thresh_disk_dir = disk_dir
 
 disk_dir = os.path.join(disk_dir, "Blink Detector Data")
 
@@ -53,16 +54,19 @@ def eye_aspect_ratio(eye):
     # return the eye aspect ratio
     return ear
 
-#needed to work as a single exe
-def resource_path(relative_path):
-        """ Get absolute path to resource, works for dev and for PyInstaller """
-        try:
-            # PyInstaller creates a temp folder and stores path in _MEIPASS
-            base_path = sys._MEIPASS
-        except Exception:
-            base_path = os.path.abspath(".")
 
-        return os.path.join(base_path, relative_path)
+# needed to work as a single exe
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
 databasePath = resource_path('shape_predictor_68_face_landmarks.dat')
 
 # construct the argument parse and parse the arguments
@@ -80,11 +84,16 @@ status = "Data collection is not currently running."
 stopButtonPressed = False
 showCamera = True
 
+
 def main():
+    with open(os.path.join(thresh_disk_dir, "threshold.txt"), "r") as f:
+        threshold = float(f.read())
+        print("Set the threshold parameter to: " + str(threshold))
+        f.close()
     global status
     global stopButtonPressed
     args = vars(ap.parse_args())
-    EYE_AR_THRESH = args['threshold']
+    EYE_AR_THRESH = threshold
     EYE_AR_CONSEC_FRAMES = args['frames']
 
     # initialize the frame counters and the total number of blinks
@@ -192,12 +201,13 @@ def main():
         if showCamera:
             # show the frame
             cv2.imshow("Frame", frame)
+            # print("eye thresh = " + str(EYE_AR_THRESH))
             key = cv2.waitKey(1) & 0xFF
 
         if stopButtonPressed:
             break
 
-    #end of while loop
+    # end of while loop
 
     end_time = time.time()
     print(TOTAL)

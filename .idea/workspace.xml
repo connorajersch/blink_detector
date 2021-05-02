@@ -48,7 +48,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Eye-Tracking-Data-Collection" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -108,25 +108,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="180" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619459052533">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="414" y="180" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619459052533" />
-    <state width="1899" height="68" key="GridCell.Tab.0.bottom" timestamp="1619459618291">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="68" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619459618291" />
-    <state width="1899" height="68" key="GridCell.Tab.0.center" timestamp="1619459618291">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="68" key="GridCell.Tab.0.center/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619459618291" />
-    <state width="1899" height="68" key="GridCell.Tab.0.left" timestamp="1619459618290">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="68" key="GridCell.Tab.0.left/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619459618290" />
-    <state width="1899" height="68" key="GridCell.Tab.0.right" timestamp="1619459618291">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1899" height="68" key="GridCell.Tab.0.right/0.0.1920.1050/1920.13.1920.1050@0.0.1920.1050" timestamp="1619459618291" />
+
   </component>
 </project>

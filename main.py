@@ -80,6 +80,10 @@ def main():
         print("This software only supports Windows, macOS, and Linux")
         exit(1)
 
+    with open(os.path.join(disk_dir, "threshold.txt"), "w") as f:
+        f.write("0.27")
+        f.close()
+
     if not os.path.isdir(disk_dir):
         os.mkdir(disk_dir)
     disk_dir = os.path.join(disk_dir, "Blink Detector Data")
