@@ -227,6 +227,8 @@ def main():
     print(status)
 
 
+# used to run the blink detection on a separate thread from GUI window, only works on windows
+# just creates a new thread and then calls "main()" from it
 class MultiThreadBlinkDetector(object):
     """
     The run() method will be started and it will run in the background
