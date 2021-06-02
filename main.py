@@ -24,6 +24,7 @@ pyinstaller main.py --name="Blink Tracking Data Collector" --icon="assets/hslab_
 '''
 
 
+# create main window and add widget and menu bar to it
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -44,6 +45,7 @@ class MainWindow(QMainWindow):
         # menu bar
         self.menu_bar = MenuBar(disk_dir, self)
 
+    # runs when window is closed
     def shutdown(self):
         self.main_ui_widget.shutdown()
 
@@ -61,6 +63,7 @@ def resource_path(relative_path):
 
 
 def main():
+    # sets up folder to store local data in based on the user's OS
     global disk_dir
     plat = platform.system()
     if plat == "Windows":
@@ -80,6 +83,7 @@ def main():
         print("This software only supports Windows, macOS, and Linux")
         exit(1)
 
+    # opens/creates a file to store the threshold value (27 by default)
     with open(os.path.join(disk_dir, "threshold.txt"), "w") as f:
         f.write("0.27")
         f.close()
